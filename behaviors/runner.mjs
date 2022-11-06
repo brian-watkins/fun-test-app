@@ -22,7 +22,7 @@ page.on("pageerror", console.log)
 await page.goto("http://localhost:5957/behaviors/index.html")
 
 await validate([
-    funBehavior
+    funBehavior(page)
 ])
 
 // await browser.close()
