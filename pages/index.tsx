@@ -1,5 +1,5 @@
+import React from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -15,10 +15,6 @@ export default function Home() {
           Welcome to this awesome app!
         </h1>
       </main>
-
-      <footer className={styles.footer}>
-          Powered by really cool stuff!
-      </footer>
     </div>
   )
 }
