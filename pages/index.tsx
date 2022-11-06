@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  const [counter, setCounter] = useState(0)
+
+  const handleClick = () => {
+    setCounter(counter + 1)
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -14,8 +20,8 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to this awesome app!
         </h1>
-        <button>Click me!</button>
-        <div data-counter-text>You clicked 0 times!</div>
+        <button onClick={handleClick}>Click me!</button>
+        <div data-counter-text>You clicked {counter} times!</div>
       </main>
     </div>
   )
