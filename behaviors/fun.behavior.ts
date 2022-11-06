@@ -1,5 +1,5 @@
 import assert from "assert";
-import { behavior, effect, example, fact } from "esbehavior";
+import { behavior, effect, example, fact, step } from "esbehavior";
 import { Page } from "playwright";
 
 export default (page: Page) =>
@@ -18,6 +18,28 @@ export default (page: Page) =>
           effect("the counter shows zero clicks", async () => {
             const counterText = await page.locator("[data-counter-text]").innerText({ timeout: 100 })
             assert.equal(counterText, "You clicked 0 times!")
+          })
+        ]
+      }),
+    example()
+      .description("Some clicks")
+      .script({
+        suppose: [
+          fact("the home page is visible", async () => {
+            await page.evaluate(() => {
+              window.showTestDisplay()
+            })
+          })
+        ],
+        perform: [
+          step("the button is clicked three times", async () => {
+            await page.locator("text=Click me!").click({ clickCount: 3, timeout: 100 })
+          })
+        ],
+        observe: [
+          effect("the counter shows three clicks", async () => {
+            const counterText = await page.locator("[data-counter-text]").innerText({ timeout: 100 })
+            assert.equal(counterText, "You clicked 3 times!")
           })
         ]
       })
