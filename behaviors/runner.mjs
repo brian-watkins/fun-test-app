@@ -12,7 +12,7 @@ const server = await createServer({
 await server.listen()
 
 const browser = await chromium.launch({
-    headless: false
+    headless: true
 })
 
 const page = await browser.newPage()
@@ -25,5 +25,5 @@ await validate([
     funBehavior(page)
 ])
 
-// await browser.close()
-// await server.close()
+await browser.close()
+await server.close()
