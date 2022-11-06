@@ -14,6 +14,7 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to this awesome app!
         </h1>
+        <div data-counter-text>You clicked 0 times!</div>
       </main>
     </div>
   )
