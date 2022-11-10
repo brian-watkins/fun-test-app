@@ -33,7 +33,7 @@ export class DisplayElement {
   constructor (private locator: Locator) {}
 
   async click(times: number): Promise<void> {
-    return await this.locator.click({ clickCount: times, timeout: 100 })
+    return await this.locator.click({ clickCount: times, force: true, timeout: 100 })
   }
 
   async text(): Promise<string> {
